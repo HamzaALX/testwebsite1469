@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word Converter</title>
+</head>
+<body>
+    <h1>PDF to Word Converter</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Convert to Word</button>
+    </form>
+    {% if converted_file %}
+    <h2>Converted File:</h2>
+    <p>Conversion successful! Click below to download the converted Word file:</p>
+    <p><a href="{{ converted_file }}" download>Download Converted File</a></p>
+    {% endif %}
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

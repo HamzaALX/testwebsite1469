@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert PDF to JPG</title>
+</head>
+<body>
+    <h1>Convert PDF to JPG</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf" required><br><br>
+        <button type="submit">Convert to JPG</button>
+    </form>
+    {% if jpg_file %}
+    <h2>Converted JPG File:</h2>
+    <img src="{{ jpg_file }}" alt="Converted Image"><br><br>
+    <a href="{{ jpg_file }}" download>Download JPG</a>
+    {% endif %}
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
